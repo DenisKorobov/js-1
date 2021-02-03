@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 2</title>
+</head>
+
+<body>
+
+    <script>
+
+        // Задание №1
+        
+        /*var a = 1, b = 1, c, d;
+        c = ++a; alert(c);           // 2 Увеличиваем А на 1, затем С присваиваем значение А. Так как ++ написан до А, то сначала происходит операция увеличения на 1.
+        d = b++; alert(d);           // 1 Присваиваем D значение B, a затем увеличиваем значение B на 1. Так как ++ написан после B, то сначала происходит операция присваивания.
+        c = (2+ ++a); alert(c);      // 5 В строке 16 мы увеличили А на 1, стало А = 2. Затем увеличиваем А на 1, становится А = 3. Затем происходит сложение 2+3=5.
+        d = (2+ b++); alert(d);      // 4 В строке 17 мы увеличили В на 1, стало В = 2. Затем происходит сложение 2+2=4. Затем В увеличивается на 1, так как ++ после В.
+        alert(a);                    // 3 В 18 строке мы увеличили А на 1, стало А = 3.
+        alert(b);                    // 3 В 19 строке мы увеличили В на 1, стало В = 3.*/
+        
+        
+        
+        // Задание №2
+        
+        /*var a = 2;
+        var x = 1 + (a *= 2);
+        Ответ: Х = 5. Сначала А*2=4, затем 1+4=5.*/
+        
+        
+        
+        // Задание №3
+        
+        /*var a = +prompt("Введите A:");
+        var b = +prompt("Введите B:");
+        if (a>=0 && b>=0){
+            alert("Разность: " + (a-b));
+        } else if (a<0 && b<0){
+            alert("Произведение: " + (a*b));
+        } else {
+            alert("Сумма: " + (a+b));
+        }*/
+        
+        
+        
+        // Задание №4
+        
+        /*var a = +prompt("Введите число от 0 до 15");
+        switch(a){
+            case 0:
+                console.log(0);
+            case 1:
+                console.log(1);
+            case 2:
+                console.log(2);
+            case 3:
+                console.log(3);
+            case 4:
+                console.log(4);
+            case 5:
+                console.log(5);
+            case 6:
+                console.log(6);
+            case 7:
+                console.log(7);
+            case 8:
+                console.log(8);
+            case 9:
+                console.log(9);
+            case 10:
+                console.log(10);
+            case 11:
+                console.log(11);
+            case 12:
+                console.log(12);
+            case 13:
+                console.log(13);
+            case 14:
+                console.log(14);
+            case 15:
+                console.log(15);
+        }*/
+        
+        
+        
+        // Задание №5
+        
+        /*function sum(a, b){
+            return a + b;
+        }
+        function dif(a, b){
+            return a - b;
+        }
+        function mult(a, b){
+            return a * b;
+        }
+        function div(a, b){
+            return a / b;
+        }*/
+        
+        
+        
+        // Задание №6
+        
+        /*function sum(a, b){
+            return a + b;
+        }
+        function dif(a, b){
+            return a - b;
+        }
+        function mult(a, b){
+            return a * b;
+        }
+        function div(a, b){
+            return a / b;
+        }
+        
+        function mathOperation(arg1, arg2, operation){
+            switch(operation){
+                case "+":
+                    alert("Сумма: " + sum(arg1, arg2));
+                    break;
+                case "-":
+                    alert("Разность: " + dif(arg1, arg2));
+                    break;
+                case "*":
+                    alert("Умножение: " + mult(arg1, arg2));
+                    break;
+                case "/":
+                    alert("Деление: " + div(arg1, arg2));
+                    break;
+                default:
+                    alert("Такой операции не существует.");
+            }
+        }
+        
+        var sign = prompt("Введите знак операции:");
+        var a = +prompt("Введите A:");
+        var b = +prompt("Введите B:");
+        mathOperation(a, b, sign);*/
+        
+        
+        
+        // Задание №7
+        
+        /*console.log(null);          // null
+        console.log(0);             // 0
+        console.log(null == 0);     // false
+        console.log(null > 0);      // false
+        console.log(null < 0);      // false
+        console.log(null <= 0);     // true
+        console.log(null >= 0);     // true
+        //Оператор >= работает так:
+        //Если null < 0 принимает значение false, то null >= 0 принимает значение true*/
+        
+        
+        
+        // Задание №8
+        
+        /*function power(val, pow){
+            if (pow == 1){
+                return val;
+            } else {
+                return val * power(val, pow - 1);
+            }
+        }
+        
+        var x = +prompt("Введите число:");
+        var y = +prompt("Введите степень:");
+        alert(x + " в степени " + y + " = " + power(x, y));*/
+        
+    </script>
+
+</body>
+
+</html>
