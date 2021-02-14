@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 4</title>
+</head>
+
+<body>
+
+    <script>
+
+        // Задание №1
+        
+        function toObject(num){
+            var obj = {};
+            if (!isNaN(num)){
+                if (num >= 0 && num <= 999){
+                    obj.firstDigit = Math.floor(num / 100);
+                    num %= 100;
+                    obj.secondDigit = Math.floor(num / 10);
+                    obj.thirdDigit = num % 10;
+                } else {
+                    console.log("Вы ввели число вне диапазона от 0 до 999.");
+                }
+            } else {
+                console.log("Вы ввели не число.");
+            }
+            return obj;
+        }
+        
+        var number = +prompt("Введите число от 0 до 999:");
+        console.log(toObject(number));
+
+    </script>
+
+</body>
+
+</html>
