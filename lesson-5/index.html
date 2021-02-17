@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 5</title>
+</head>
+
+<body>
+
+    <div id="table"></div>
+
+    <script>
+
+        function insertTable(element) {
+            var arNumber = [8, 7, 6, 5, 4, 3, 2, 1];
+            var arLetter = ["A", "B", "C", "D", "E", "F", "G", "H"];
+            var whiteFigure = ["&#9817;", "&#9814;", "&#9816;", "&#9815;", "&#9813;", "&#9812;", "&#9815;", "&#9816;", "&#9814;"];
+            var blackFigure = ["&#9823;", "&#9820;", "&#9822;", "&#9821;", "&#9819;", "&#9818;", "&#9821;", "&#9822;", "&#9820;"];
+            var table = document.createElement("table");
+            for (var i = 0; i < 10; i++) {
+                var tr = document.createElement("tr");
+                for (var j = 0; j < 10; j++) {
+                    td = document.createElement("td");
+                    if ((!j || j == 9) && (i && i != 9)) {
+                        td.insertAdjacentText("afterbegin", arNumber[i - 1]);
+                    }
+                    if ((!i || i == 9) && (j && j != 9)) {
+                        td.insertAdjacentText("afterbegin", arLetter[j - 1]);
+                    }
+                    if (!((i % 2 && j % 2) || (!(i % 2) && !(j % 2))) && i && i != 9 && j && j != 9) {
+                        td.className = "black";
+                    }
+                    if (i == 1 && j && j != 9) {
+                        td.insertAdjacentHTML("afterbegin", blackFigure[j]);
+                    }
+                    if (i == 2 && j && j != 9) {
+                        td.insertAdjacentHTML("afterbegin", blackFigure[0]);
+                    }
+                    if (i == 8 && j && j != 9) {
+                        td.insertAdjacentHTML("afterbegin", whiteFigure[j]);
+                    }
+                    if (i == 7 && j && j != 9) {
+                        td.insertAdjacentHTML("afterbegin", whiteFigure[0]);
+                    }
+                    tr.append(td);
+                }
+                table.append(tr);
+            }
+            element.append(table);
+        }
+
+        var block = document.querySelector("#table");
+        insertTable(block);
+
+    </script>
+
+</body>
+
+</html>
