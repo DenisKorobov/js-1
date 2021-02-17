@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 6</title>
+</head>
+
+<body>
+
+    <div class="shop"></div>
+
+    <script>
+
+        var arBasket = [];
+
+        var catalog = [
+            {
+                name: "Стул",
+                price: 1000
+            },
+            {
+                name: "Стол",
+                price: 5000
+            },
+            {
+                name: "Кровать",
+                price: 10000
+            },
+            {
+                name: "Диван",
+                price: 20000
+            },
+            {
+                name: "Тумба",
+                price: 4000
+            }
+        ];
+
+        var basketHtml = document.createElement("div");
+        basketHtml.className = "basket";
+
+        var catalogHtml = document.createElement("div");
+        catalogHtml.className = "catalog";
+
+        insertBasket(arBasket);
+
+        for (var i = 0; i < catalog.length; i++) {
+            var catalogItem = document.createElement("div");
+            var catalogItemName = document.createElement("div");
+            var catalogItemImg = document.createElement("div");
+            var catalogItemPrice = document.createElement("div");
+            var catalogItemButton = document.createElement("button");
+
+            catalogItem.className = "catalog_item";
+            catalogItemName.className = "catalog_item_name";
+            catalogItemImg.className = "catalog_item_img";
+            catalogItemPrice.className = "catalog_item_price";
+            catalogItemButton.id = "button_" + i;
+
+            catalogItemName.innerHTML = catalog[i].name;
+            catalogItemPrice.innerHTML = catalog[i].price;
+            catalogItemButton.innerHTML = "Купить";
+
+            catalogItemButton.onclick = function () {
+                var id = this.id.replace("button_", "");
+                var inBasket = false;
+
+                for (var item of arBasket) {
+                    if (item.name == catalog[id].name) {
+                        item.quantity++;
+                        inBasket = true;
+                        break;
+                    }
+                }
+
+                if (!inBasket) {
+                    var basket = new Basket(catalog[id].name, catalog[id].price, 1);
+                    arBasket.push(basket);
+                }
+
+                insertBasket(arBasket);
+            }
+
+            catalogItem.append(catalogItemName, catalogItemImg, catalogItemPrice, catalogItemButton);
+            catalogHtml.append(catalogItem);
+        }
+
+        document.querySelector(".shop").append(basketHtml);
+        document.querySelector(".shop").append(catalogHtml);
+
+        function Basket(name, price, quantity) {
+            this.name = name;
+            this.price = price;
+            this.quantity = quantity;
+        }
+
+        function countBasketPrice(cart) {
+            var sum = 0;
+            for (var item of cart) {
+                sum += item.price * item.quantity;
+            }
+            return sum;
+        }
+
+        function insertBasket(items) {
+            basketHtml.innerHTML = "";
+            for (var i = 0; i <= items.length + 1; i++) {
+                var basketItem = document.createElement("div");
+                var basketItemName = document.createElement("div");
+                var basketItemPrice = document.createElement("div");
+                var basketItemQuantity = document.createElement("div");
+
+                basketItem.className = "basket_item";
+                basketItemName.className = "basket_item_name";
+                basketItemPrice.className = "basket_item_price";
+                basketItemQuantity.className = "basket_item_quantity";
+
+                if (!i) {
+                    basketItemName.innerHTML = "Товар";
+                    basketItemPrice.innerHTML = "Цена";
+                    basketItemQuantity.innerHTML = "Количество";
+                } else if (i != items.length + 1) {
+                    basketItemName.innerHTML = items[i - 1].name;
+                    basketItemPrice.innerHTML = items[i - 1].price;
+                    basketItemQuantity.innerHTML = items[i - 1].quantity;
+                } else {
+                    basketItemName.innerHTML = "Итого:";
+                    basketItemPrice.innerHTML = countBasketPrice(items);
+                }
+
+                basketItem.append(basketItemName, basketItemPrice, basketItemQuantity);
+                basketHtml.append(basketItem);
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
