@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 8</title>
+</head>
+
+<body>
+
+    <script>
+        
+        Задание 1.
+        
+            init -> prepareGameField
+            startGame -> respawn
+        
+        Задание 2.
+
+            if (!("a" in window)) { //true
+                var a = 1;
+            }
+            alert(a);
+
+            Ответ: undefined, не понял почему.
+        
+            
+            
+            var b = function a(x) {
+                x && a(--x);
+            };
+            alert(a); 
+
+
+            Ответ: a is not defined, так как переменная а не определена ранее.
+
+            
+            
+            function a(x) {
+                return x * 2;
+            }
+            var a;
+            alert(a);
+
+            Ответ: выведет функцию.
+        
+        
+        
+            function b(x, y, a) {
+                arguments[2] = 10;
+                alert(a);
+            }
+            b(1, 2, 3);
+
+            Ответ: 10, т.к. последнему элементу массива arguments присваиваем значение 10, потом его выводим (а).
+        
+        
+
+            function a() {
+                alert(this);
+            }
+            a.call(null);
+
+            Ответ: объект window, так как по умолчанию this - это window.
+
+    </script>
+
+</body>
+
+</html>
